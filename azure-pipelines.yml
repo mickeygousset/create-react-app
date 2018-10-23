@@ -4,7 +4,7 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
 pool:
-  vmImage: 'vs2017-win2016'
+  vmImage: 'macOS-10.13'
 
 steps:
 - task: NodeTool@0
@@ -29,6 +29,15 @@ steps:
   inputs:
     Arguments: build
 
+- task: ArchiveFiles@2
+  displayName: 'Archive $(System.DefaultWorkingDirectory)'
+  inputs:
+    rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
+
+    includeRootFolder: false
+    
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: drop'
 
 # - script: |
 #     npm install
