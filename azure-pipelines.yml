@@ -30,9 +30,9 @@ steps:
     Arguments: build
 
 - task: ArchiveFiles@2
-  displayName: 'Archive $(System.DefaultWorkingDirectory)'
+  displayName: 'Archive $(System.DefaultWorkingDirectory)\build'
   inputs:
-    rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
+    rootFolderOrFile: '$(System.DefaultWorkingDirectory)\build'
 
     includeRootFolder: false
     
