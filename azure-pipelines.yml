@@ -18,6 +18,12 @@ steps:
     versionSpec: 1.x
 
     checkLatest: true
+    
+- task: geeklearningio.gl-vsts-tasks-yarn.yarn-task.Yarn@2
+  displayName: 'Yarn install'
+  inputs:
+    Arguments: install
+
 
 - script: |
     npm install
