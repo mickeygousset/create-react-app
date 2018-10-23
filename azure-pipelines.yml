@@ -23,6 +23,11 @@ steps:
   displayName: 'Yarn install'
   inputs:
     Arguments: install
+    
+- task: geeklearningio.gl-vsts-tasks-yarn.yarn-task.Yarn@2
+  displayName: 'Yarn build'
+  inputs:
+    Arguments: build
 
 
 # - script: |
