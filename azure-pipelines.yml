@@ -39,12 +39,12 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
   
-job: Build
-strategy:
-  maxParallel: 2
-  matrix:
-    Node8:
-      NODE_VERSION: '8.x'
+- job: Build
+  strategy:
+    maxParallel: 2
+    matrix:
+      Node8:
+        NODE_VERSION: '8.x'
     
 
 # - script: |
