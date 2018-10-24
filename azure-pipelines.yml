@@ -38,6 +38,9 @@ jobs:
     displayName: 'Yarn build'
     inputs:
       Arguments: build
+      
+  - bash: |
+      '$(System.DefaultWorkingDirectory)/tasks/e2e-simple.sh'
 
   - task: ArchiveFiles@2
     displayName: 'Archive $(System.DefaultWorkingDirectory)/build'
@@ -49,5 +52,4 @@ jobs:
   - task: PublishBuildArtifacts@1
     displayName: 'Publish Artifact: drop'
   
-  - bash: |
-      '$(System.DefaultWorkingDirectory)/tasks/e2e-behavior.sh'
+  
