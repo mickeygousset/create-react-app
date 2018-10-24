@@ -41,6 +41,7 @@ steps:
   
 job: Build
 strategy:
+  maxParallel: 2
   matrix:
     Node8:
       NODE_VERSION: '8.x'
