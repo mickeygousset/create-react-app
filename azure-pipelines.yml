@@ -9,8 +9,8 @@ pool:
 steps:
 - task: NodeTool@0
   inputs:
-    versionSpec: '8.x'
-  displayName: 'Install Node.js'
+    versionSpec: '$(NODE_VERSION)'
+  displayName: 'Install Node.js $(NODE_VERSION)'
 
 - task: geeklearningio.gl-vsts-tasks-yarn.yarn-installer-task.YarnInstaller@2
   displayName: 'Use Yarn 1.x'
@@ -38,6 +38,13 @@ steps:
     
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
+  
+job: Build
+strategy:
+  matrix:
+    Node8:
+      NODE_VERSION: '8.x'
+    
 
 # - script: |
 #     npm install
