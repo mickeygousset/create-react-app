@@ -10,8 +10,8 @@ jobs:
     matrix:
       Node8:
         NODE_VERSION: '8.x'
-      Node10:
-        NODE_VERSION: '10.x'
+#      Node10:
+#        NODE_VERSION: '10.x'
 
   pool:
     vmImage: 'macOS-10.13'
@@ -49,10 +49,5 @@ jobs:
   - task: PublishBuildArtifacts@1
     displayName: 'Publish Artifact: drop'
   
-
-    
-
-# - script: |
-#     npm install
-#     npm run build
-#   displayName: 'npm install and build'
+  - bash: |
+      'tasks/e2e-behavior.sh; fi'
