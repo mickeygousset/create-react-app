@@ -50,4 +50,4 @@ jobs:
     displayName: 'Publish Artifact: drop'
   
   - bash: |
-      'tasks/e2e-behavior.sh; fi'
+      '$(System.DefaultWorkingDirectory)/tasks/e2e-behavior.sh; fi'
