@@ -10,6 +10,8 @@ jobs:
     matrix:
       Node8:
         NODE_VERSION: '8.x'
+      Node10:
+        NODE_VERSION: '10.x'
 
   pool:
     vmImage: 'macOS-10.13'
