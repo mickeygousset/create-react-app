@@ -4,7 +4,7 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
 jobs:
-- job: Build
+- job: BuildMacOS
   strategy:
     maxParallel: 2
     matrix:
@@ -40,7 +40,7 @@ jobs:
       Arguments: build
       
   - bash: |
-      '$(System.DefaultWorkingDirectory)/tasks/e2e-simple.sh'
+      '$(System.DefaultWorkingDirectory)/tasks/e2e-installs.sh'
 
   - task: ArchiveFiles@2
     displayName: 'Archive $(System.DefaultWorkingDirectory)/build'
