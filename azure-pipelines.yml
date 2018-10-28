@@ -39,7 +39,7 @@ jobs:
     inputs:
       Arguments: build
       
-  - bash: |
+  - script: |
       '$(System.DefaultWorkingDirectory)/tasks/mickey.sh'
 
   - task: ArchiveFiles@2
