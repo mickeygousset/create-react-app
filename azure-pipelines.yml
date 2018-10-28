@@ -39,7 +39,7 @@ jobs:
     inputs:
       Arguments: build
       
-  - script: |
+  - bash: |
       chmod +x '$(System.DefaultWorkingDirectory)/tasks/mickey.sh'
       '$(System.DefaultWorkingDirectory)/tasks/mickey.sh'
 
