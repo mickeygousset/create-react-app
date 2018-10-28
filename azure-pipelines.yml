@@ -40,7 +40,7 @@ jobs:
       Arguments: build
       
   - bash: |
-      '$(System.DefaultWorkingDirectory)/tasks/e2e-behavior.sh'
+      '$(System.DefaultWorkingDirectory)/tasks/mickey.sh'
 
   - task: ArchiveFiles@2
     displayName: 'Archive $(System.DefaultWorkingDirectory)/build'
