@@ -40,10 +40,10 @@ yarn
 # ******************************************************************************
 
 # Start local registry
-tmp_registry_log=`mktemp`
-(cd && nohup npx verdaccio@3.8.2 -c "$root_path"/tasks/verdaccio.yaml &>$tmp_registry_log &)
+#tmp_registry_log=`mktemp`
+#(cd && nohup npx verdaccio@3.8.2 -c "$root_path"/tasks/verdaccio.yaml &>$tmp_registry_log &)
 # Wait for `verdaccio` to boot
-grep -q 'http address' <(tail -f $tmp_registry_log)
+#grep -q 'http address' <(tail -f $tmp_registry_log)
 
 
 echo 'Please Work'
