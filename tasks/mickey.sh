@@ -56,7 +56,8 @@ echo 'more $tmp_registry_log'
 sleep 1m
 
 echo 'Cleaning up.'
-echo ps -ef
+test = ps
+echo '$test'
 ps -ef | grep 'react-scripts' | grep -v grep | awk '{print $2}' | xargs kill -9
 cd "$root_path"
 npm set registry "$original_npm_registry_url"
