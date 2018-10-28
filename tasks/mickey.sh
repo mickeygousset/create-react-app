@@ -47,7 +47,7 @@ echo '2'
 (cd && nohup npx verdaccio@3.8.2 -c "$root_path"/tasks/verdaccio.yaml &>$tmp_registry_log &)
 echo '3'
 # Wait for `verdaccio` to boot
-#grep -q 'http address' <(tail -f $tmp_registry_log)
+grep -q 'http address' <(tail -f $tmp_registry_log)
 echo '4'
 
 echo 'Please Work'
