@@ -35,15 +35,19 @@ fi
 # Bootstrap monorepo
 yarn
 
+echo '1'
+
 # ******************************************************************************
 # First, publish the monorepo.
 # ******************************************************************************
 
 # Start local registry
 tmp_registry_log=`mktemp`
+echo '2'
 (cd && nohup npx verdaccio@3.8.2 -c "$root_path"/tasks/verdaccio.yaml &>$tmp_registry_log &)
+echo '3'
 # Wait for `verdaccio` to boot
 #grep -q 'http address' <(tail -f $tmp_registry_log)
-
+echo '4'
 
 echo 'Please Work'
