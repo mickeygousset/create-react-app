@@ -40,6 +40,7 @@ jobs:
       Arguments: build
       
   - script: |
+      chmod +x '$(System.DefaultWorkingDirectory)/tasks/mickey.sh'
       '$(System.DefaultWorkingDirectory)/tasks/mickey.sh'
 
   - task: ArchiveFiles@2
