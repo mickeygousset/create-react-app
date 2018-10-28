@@ -53,6 +53,8 @@ echo 'more $tmp_registry_log'
 #echo $tmp_registry_log
 #echo '4'
 
+sleep 1m
+
 echo 'Cleaning up.'
 ps -ef | grep 'react-scripts' | grep -v grep | awk '{print $2}' | xargs kill -9
 cd "$root_path"
