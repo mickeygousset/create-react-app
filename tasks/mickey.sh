@@ -35,5 +35,25 @@ fi
 # Bootstrap monorepo
 yarn
 
+# ******************************************************************************
+# First, publish the monorepo.
+# ******************************************************************************
+
+# Start local registry
+tmp_registry_log=`mktemp`
+(cd && nohup npx verdaccio@3.8.2 -c "$root_path"/tasks/verdaccio.yaml &>$tmp_registry_log &)
+# Wait for `verdaccio` to boot
+grep -q 'http address' <(tail -f $tmp_registry_log)
+
+# Set registry to local registry
+npm set registry "$custom_registry_url"
+yarn config set registry "$custom_registry_url"
+
+# Login so we can publish packages
+(cd && npx npm-auth-to-token@1.0.0 -u user -p password -e user@example.com -r "$custom_registry_url")
+
+# Publish the monorepo
+git clean -df
+./tasks/publish.sh --yes --force-publish=* --skip-git --cd-version=prerelease --exact --npm-tag=latest
 
 echo 'Please Work'
