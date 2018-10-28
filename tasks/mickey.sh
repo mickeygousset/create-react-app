@@ -20,4 +20,20 @@ custom_registry_url=http://localhost:4873
 original_npm_registry_url=`npm get registry`
 original_yarn_registry_url=`yarn config get registry`
 
-echo 'this is a test'
+# Echo every command being executed
+set -x
+
+# Go to root
+cd ..
+root_path=$PWD
+
+if hash npm 2>/dev/null
+then
+  npm i -g npm@latest
+fi
+
+# Bootstrap monorepo
+yarn
+
+
+echo 'Please Work'
