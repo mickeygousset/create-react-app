@@ -50,4 +50,10 @@ echo '3'
 grep -q 'http address' <(tail -f $tmp_registry_log)
 echo '4'
 
+echo 'Cleaning up.'
+ps -ef | grep 'react-scripts' | grep -v grep | awk '{print $2}' | xargs kill -9
+cd "$root_path"
+npm set registry "$original_npm_registry_url"
+yarn config set registry "$original_yarn_registry_url"
+
 echo 'Please Work'
