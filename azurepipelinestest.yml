@@ -15,5 +15,21 @@ jobs:
     inputs:
       versionSpec: '$(NODE_VERSION)'
 
+  - task: geeklearningio.gl-vsts-tasks-yarn.yarn-installer-task.YarnInstaller@2
+    displayName: 'Use Yarn 1.x'
+    inputs:
+      versionSpec: 1.x
+      checkLatest: true
+    
+  - task: geeklearningio.gl-vsts-tasks-yarn.yarn-task.Yarn@2
+    displayName: 'Yarn install'
+    inputs:
+      Arguments: install
+    
+  - task: geeklearningio.gl-vsts-tasks-yarn.yarn-task.Yarn@2
+    displayName: 'Yarn build'
+    inputs:
+      Arguments: build
+
   - script: npm install
     displayName: 'npm install'
