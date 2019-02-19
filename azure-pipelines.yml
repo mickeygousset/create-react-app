@@ -38,10 +38,13 @@ jobs:
     displayName: 'Yarn build'
     inputs:
       Arguments: build
+
+  - script: tasks/e2e-simple.sh
+    displayName: 'e2e-simple.sh'
       
-  - bash: |
-      chmod +x '$(System.DefaultWorkingDirectory)/tasks/mickey.sh'
-      '$(System.DefaultWorkingDirectory)/tasks/mickey.sh'
+  #- bash: |
+  #    chmod +x '$(System.DefaultWorkingDirectory)/tasks/mickey.sh'
+  #    '$(System.DefaultWorkingDirectory)/tasks/mickey.sh'
 
   - task: ArchiveFiles@2
     displayName: 'Archive $(System.DefaultWorkingDirectory)/build'
