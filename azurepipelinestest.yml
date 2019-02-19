@@ -11,9 +11,9 @@ jobs:
 
   steps:
   - task: NodeTool@0
-  displayName: 'Node Tool install $(NODE_VERSION)'
-  inputs:
-    versionSpec: '$(NODE_VERSION)'
+    displayName: 'Node Tool install $(NODE_VERSION)'
+    inputs:
+      versionSpec: '$(NODE_VERSION)'
 
-#  - script: npm install
-#    displayName: 'npm install'
+  - script: npm install
+    displayName: 'npm install'
